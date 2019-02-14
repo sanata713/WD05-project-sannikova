@@ -12,17 +12,25 @@
                     <div class="user-profile__avatar">
                         <div class="avatar">
                             <?php if ( $_SESSION['logged_user']['avatar'] != "") { ?>
-			                <img src="<?=HOST?>usercontent/avatar/<?=$currentUser->avatar?>" alt="<?=$currentUser->name?> <?=$currentUser->secondname?>" />
-			                <?php } ?>
+                            <img src="<?=HOST?>usercontent/avatar/<?=$currentUser->avatar?>" alt="<?=$currentUser->name?> <?=$currentUser->secondname?>" />
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="user-profile__description">
                         <span>Имя и фамилия</span>
-                        <p><?=$currentUser->name?> <?=$currentUser->secondname?></p>
+                        <p>
+                            <?=$currentUser->name?>
+                            <?=$currentUser->secondname?>
+                        </p>
                         <span>Email</span>
-                        <p><?=$currentUser->email?></p>
+                        <p>
+                            <?=$currentUser->email?>
+                        </p>
                         <span>Страна, Город</span>
-                        <p><?=$currentUser->country?>, <?=$currentUser->city?></p>
+                        <p>
+                            <?=$currentUser->country?>
+                            <?=$currentUser->city?>
+                        </p>
                     </div>
                 </div>
                 <h2 class="title-2 title-2--color mt-0 mb-25">Комментарии пользователя</h2>

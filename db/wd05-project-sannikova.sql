@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 12 2019 г., 18:29
+-- Время создания: Фев 14 2019 г., 15:03
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -68,8 +68,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `password`, `role`, `name`, `secondname`, `country`, `city`, `avatar`, `avatar_small`, `recovery_code`, `recovery_code_times`) VALUES
 (1, 'info@mail.com', '$2y$10$D9ew/fWkyOJCR8IRu/GYlugAIiifkwkc7lXKnRCBUVgXPBiY8WgGm', 'admin', 'Наталья', 'Санникова', 'Россия', 'Чайковский', '-521372853.jpg', '48--521372853.jpg', 'zkRyNAWXgeBPiYS', 0),
-(5, 'user@mail.com', '$2y$10$fc8jv7QbXezCv4ST6ZvlSO0hwS.CKdWWoNggjlxlKscT3m6fdq4sy', 'user', 'Антон', 'Вольхин', 'Беларусь', 'Минск', '154465685.jpg', '48-154465685.jpg', NULL, NULL),
-(7, 'info10@mail.com', '$2y$10$51VYOXJztFCELzIbNIjfye1g1JdqYgHd.N2B.1Rk4sv4sSuNhyOm6', 'user', 'Анна', 'Михайлова', 'Украина', 'Львов', '1194167106.jpg', '48-1194167106.jpg', NULL, NULL);
+(5, 'user@mail.com', '$2y$10$fc8jv7QbXezCv4ST6ZvlSO0hwS.CKdWWoNggjlxlKscT3m6fdq4sy', 'user', 'Антон', 'Вол', 'Беларусь', 'Минск', '-247764095.jpg', '48--247764095.jpg', NULL, NULL),
+(7, 'info10@mail.com', '$2y$10$51VYOXJztFCELzIbNIjfye1g1JdqYgHd.N2B.1Rk4sv4sSuNhyOm6', 'user', 'Анна', 'Михайлова', 'Украина', 'Львов', '1194167106.jpg', '48-1194167106.jpg', NULL, NULL),
+(8, 'user2@mail.com', '$2y$10$cxaF8NA0XCfCZwIYUXgHRe6vLc9pmWctB2vQtdm.s9kAR2MZlMhw2', 'user', 'Иван', 'Васильев', '', 'Челябинск', '490279816.jpg', '48-490279816.jpg', NULL, NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -101,7 +102,7 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

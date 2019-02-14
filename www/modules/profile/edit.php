@@ -98,7 +98,6 @@ if(isset($_POST['profile-update'])) {
 			$img->writeImage($resized_file);
 
 			$user->avatarSmall = "48-" . $db_file_name;
-
 		}
         
         R::store($user);
