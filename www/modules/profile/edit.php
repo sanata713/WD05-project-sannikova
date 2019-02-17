@@ -4,11 +4,14 @@ $title = "Редактировать профиль";
 
 $currentUser = $_SESSION['logged_user'];
 $user = R::load('users', $currentUser->id);
+$pattern = '/^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z{2,4}\.])?[a-z]{2,4}$/i';
 
 if(isset($_POST['profile-update'])) {
     
     if(trim($_POST['email']) == '') {
         $errors[] = ['title' => 'Введите Email'];
+    } else if (!preg_match($pattern, trim($_POST['email']))) {
+        $errors[] = ['title' => 'Неверный формат email'];
     }
     
     if(trim($_POST['name']) == '') {
@@ -17,6 +20,31 @@ if(isset($_POST['profile-update'])) {
     
     if(trim($_POST['secondname']) == '') {
         $errors[] = ['title' => 'Введите фамилию'];
+    }
+    
+    if (isset($_FILES['avatar']['name']) && $_FILES['avatar']['tmp_name'] != '') {
+        // Write file image params in variables
+        $fileName = $_FILES['avatar']['name'];
+        $fileTmpLoc = $_FILES['avatar']['tmp_name'];
+        $fileType = $_FILES['avatar']['type'];
+        $fileSize = $_FILES['avatar']['size'];
+        $fileErrorMsg = $_FILES['avatar']['error'];
+        if (@getimagesize($fileTmpLoc)) {
+            list($width, $height) = getimagesize($fileTmpLoc);
+            if ($width < 10 || $height < 10) {
+                $errors[] = ['title' =>'Изображение не имеет размеров. Загрузите изображение побольше' ];
+            }
+        } 
+        
+        if ($fileSize > 4194304) {
+            $errors[] = ['title' =>'Файл изображения не болжен быть более 4 Mb' ];
+        }
+        if (!preg_match("/\.(gif|jpg|png|jpeg)$/i", $fileName)) {
+            $errors[] = ['title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате gif, jpg, png или jpeg</p>'];
+        }
+        if ($fileErrorMsg == 1) {
+            $errors[] = ['title' =>'При загрузке изображения произошла ошибка. Повторите попытку' ];
+        }
     }
     
     if(empty($errors)) {
@@ -78,7 +106,8 @@ if(isset($_POST['profile-update'])) {
 			if ($moveResult != true) {
 				$errors[] = ['title' => 'Ошибка сохранения файла' ];
 			}
-
+            
+            //Подключение библиотеки image_resize_imagick.php
 			include_once( ROOT . "/libs/image_resize_imagick.php");
 
 			$target_file =  $avatarFolderLocation . $db_file_name;
