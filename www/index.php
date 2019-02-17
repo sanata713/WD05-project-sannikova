@@ -24,6 +24,7 @@ switch ($uri[0]) {
         break;
         
 //::::::::::::: USERS ::::::::::::::::::::::
+        
     case 'login':
         require ROOT . "modules/login/login.php";
         break;
@@ -51,19 +52,34 @@ switch ($uri[0]) {
     case 'profile-edit':
         include ROOT . "modules/profile/edit.php";
         break;
- //::::::::::::::::::::::::::::::::::::::::::       
+        
+//::::::::::::: ABOUT :::::::::::::::::::::::     
         
     case 'about':
         include "modules/about/index.php";
         break;
         
+//::::::::::::: CONTACTS ::::::::::::::::::::
+        
     case 'contacts':
         include "modules/contacts/index.php";
         break;
         
+//::::::::::::: BLOG ::::::::::::::::::::::::
+        
     case 'blog':
         include "modules/blog/index.php";
         break;
+        
+    case 'blog/post-new':
+        include "modules/blog/post-new.php";
+        break;
+        
+    case 'blog/post':
+        include "modules/blog/post.php";
+        break;
+        
+//::::::::::::: MAIN OTHER ::::::::::::::::::
         
     default:
         echo "404 and Main page!";

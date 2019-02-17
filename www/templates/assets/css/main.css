@@ -993,11 +993,18 @@ a.title-medium,
     font-size: 16px;
     color: #fff;
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+}
+
+.nav__link--active {
+    text-decoration: none;
+    border-bottom: none;
 }
 
 .nav__link:hover {
     text-decoration: none;
+    border-bottom: none;
 }
 
 .user-block .nav__link {
@@ -1276,7 +1283,7 @@ a.title-medium,
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    text-decoration: underline;
+/*    text-decoration: underline;*/
     margin-right: 50px;
 }
 
@@ -1828,7 +1835,10 @@ nav.footer__nav a:last-child {
 }
 
 .post-head {
-    position: relative;
+/*    position: relative;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .post-head h1 {
@@ -1836,7 +1846,7 @@ nav.footer__nav a:last-child {
 }
 
 .post-head--position {
-    position: absolute;
+/*    position: absolute;*/
     top: 0;
     right: 0;
 }

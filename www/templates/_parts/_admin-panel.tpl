@@ -5,7 +5,12 @@
                 <div class="avatar avatar--small">
                     <?php if ( $_SESSION['logged_user']['avatar_small'] != "") { ?>
 			        <img src="<?=HOST?>usercontent/avatar/<?=$_SESSION['logged_user']['avatar_small']?>" alt="avatar-small" />
+			        <?php } else {?>
+                    <img src="<?=HOST?>usercontent/avatar/no-avatar-small.jpg?>" alt="avatar-small" />
 			        <?php } ?>
+
+                            
+               
                 </div>
             </a>
             <div class="brif ml-20">

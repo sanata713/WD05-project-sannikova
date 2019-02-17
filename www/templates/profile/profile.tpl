@@ -13,6 +13,8 @@
                         <div class="avatar">
                             <?php if ( $_SESSION['logged_user']['avatar'] != "") { ?>
                             <img src="<?=HOST?>usercontent/avatar/<?=$currentUser->avatar?>" alt="<?=$currentUser->name?> <?=$currentUser->secondname?>" />
+                            <?php } else {?>
+                            <img src="<?=HOST?>usercontent/avatar/no-avatar.jpg?>" alt="<?=$post['title']?>" />
                             <?php } ?>
                         </div>
                     </div>
