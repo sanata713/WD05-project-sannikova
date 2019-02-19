@@ -9,5 +9,5 @@ $(document).ready(function() {
 	$('[data-notify-hide]').dblclick(function(){
 		$(this).slideUp(400);
 	});
-	
+    
 });
