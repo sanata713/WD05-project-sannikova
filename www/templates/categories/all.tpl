@@ -1,8 +1,8 @@
 <div class="container pl-0 pr-0 pt-80 pb-120">
 
-    <?php if ( isset($_GET['result'])) {
+<?php if ( isset($_GET['result'])) {
 	include ROOT . "templates/categories/_results.tpl";
-} ?>
+} ?> 
 
     <div class="blog-title mt-40 mb-40">
         <h1 class="title-general mb-0 mt-0 blog-title--color">Категории блога</h1>
