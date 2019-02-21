@@ -12,19 +12,19 @@ $post = R::load('posts', $_GET['id']);
 if ( isset($_POST['postDelete'])) {
     
     // Если картинка поста  уже установлена, то удаляем предыдущую картинку
-	$postImgFolderLocation = ROOT . "usercontent/blog/";
-    
+	$postImgFolderLocation = ROOT . "usercontent/blog/"; 
     $postImg = $post->post_img;
 	if ( $postImg != "" ) {
 		$picurl = $postImgFolderLocation . $postImg;
-		// Удаляем картинку
-		// die($picurl); 
+		
+        // Удаляем картинку
         if ( file_exists($picurl) ) { unlink($picurl); }
         $picurl320 = $postImgFolderLocation . '320-' . $postImg;
         if ( file_exists($picurl320) ) { unlink($picurl320); }
 	}
     
 	R::trash($post);
+    R::exec('DELETE from comments where post_id = ' . $_GET['id'] . '');
     header('Location: ' . HOST . "blog?result=postDeleted");
 	exit();
 }

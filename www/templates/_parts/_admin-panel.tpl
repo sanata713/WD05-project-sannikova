@@ -4,13 +4,10 @@
             <a class="avatar-link" href="#!">
                 <div class="avatar avatar--small">
                     <?php if ( $_SESSION['logged_user']['avatar_small'] != "") { ?>
-			        <img src="<?=HOST?>usercontent/avatar/<?=$_SESSION['logged_user']['avatar_small']?>" alt="avatar-small" />
+			        <img src="<?=HOST?>usercontent/avatar/<?=$_SESSION['logged_user']['avatar_small']?>" alt="<?=$_SESSION['logged_user']['name']?> <?=$_SESSION['logged_user']['secondname']?>" />
 			        <?php } else {?>
-                    <img src="<?=HOST?>usercontent/avatar/no-avatar-small.jpg?>" alt="avatar-small" />
+                    <img src="<?=HOST?>usercontent/avatar/no-avatar-small.jpg?>" alt="<?=$_SESSION['logged_user']['name']?> <?=$_SESSION['logged_user']['secondname']?>" />
 			        <?php } ?>
-
-                            
-               
                 </div>
             </a>
             <div class="brif ml-20">
