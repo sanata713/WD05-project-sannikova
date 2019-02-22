@@ -3,7 +3,8 @@
         <div class="col-10 offset-1">
             <div class="post">
                 <div class="post-head">
-                    <h1 class="title-general mb-0 mt-0 <?=@$additionalHeaderClass?>"><?=$post['title']?>
+                    <h1 class="title-general mb-0 mt-0 <?=@$additionalHeaderClass?>">
+                        <?=$post['title']?>
                     </h1>
                     <?php if ( isAdmin() ) { ?>
                     <div class="mw-290">
@@ -11,7 +12,7 @@
                         <a class="button button-delete" href="<?=HOST?>blog/post-delete?id=<?=$post['id']?>">Удалить</a>
                     </div>
                     <?php } ?>
-                    
+
                     <?php if ( isAdmin() ) {
                     $additionalHeaderClass = 'mw-290';
                     } ?>
@@ -28,9 +29,11 @@
                     <div class="post-info__date">
                         <? echo rus_date("j F Y H:i", strtotime($post['date_time'])); ?>
                     </div>
+                    <?php if(count($comments)>0) { ?>
                     <div class="post-info__comments">
-                        <a class="postlink" href="#">2 комментария</a>
+                        <a class="postlink" href="#comments"><?php commentNumber(count($comments)); ?></a>
                     </div>
+                    <?php } ?>
                 </div>
                 <div class="post-img">
                     <?php if ( $post['post_img'] != "") { ?>
@@ -55,57 +58,19 @@
                     </a>
                 </div>
             </div>
+
             <div class="user-comments-wrapper mb-25">
-                <div class="title-2">2 комментария</div>
-                <div class="user-comment">
-                    <div class="user-comment__avatar">
-                        <div class="avatar avatar--small">
-                            <img src="../img/avatars/avatar-2.jpg" alt="Джон До собственной персоной" />
-                        </div>
+                <?php if(count($comments)>0) { ?>
+                    <div class="title-2" id="comments" >
+                    <?php commentNumber(count($comments)); ?>
                     </div>
-                    <div class="user-comment-info-wrapper">
-                        <span class="user-comment__name">Джон До</span>
-                        <span class="user-comment__date">
-                            <i class="far fa-clock"></i>
-                            01 декабря 2018 года в 15:37
-                        </span>
-                        <div class="user-comment__text">
-                            <p>Замечательный парк, обязательно отправлюсь туда этим летом. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="user-comment">
-                    <div class="user-comment__avatar">
-                        <div class="avatar avatar--small">
-                            <img src="../img/avatars/avatar-3.jpg" alt="Джейн До собственной персоной" />
-                        </div>
-                    </div>
-                    <div class="user-comment-info-wrapper">
-                        <span class="user-comment__name">Джейн До</span>
-                        <span class="user-comment__date">
-                            <i class="far fa-clock"></i>
-                            02 декабря 2018 года в 19:47
-                        </span>
-                        <div class="user-comment__text">
-                            <p>Согласна, парк просто потрясающий! Была там в прошлом году и нисколько не пожалела. Обязательно вернусь туда снова в следующем году.</p>
-                        </div>
-                    </div>
-                </div>
+                    <?php foreach ($comments as $comment) { ?>
+                        <?php include ROOT . "templates/blog/_comment-card.tpl" ?>
+                    <?php } ?>
+                <?php } ?>
             </div>
-            <h2 class="title-2 m-0 mb-15">Оставить комментарий</h2>
-            <div class="comments-submit">
-                <div class="avatar avatar--small">
-                    <img src="../img/avatars/avatar.jpg" alt="alt text avatar" />
-                </div>
-                <div class="comments-form">
-                    <b class="comments__author">Юрий Ключевский</b>
-                    <div class="notification">
-                        <div class="notification__title notification--error">Комментарий не может быть пустым</div>
-                    </div>
-                    <textarea class="textarea" name="comment-user" placeholder="Присоединиться к обсуждению..."></textarea>
-                    <input class="button mt-10" type="submit" name="infoButton" value="Опубликовать" />
-                </div>
-            </div>
+            <!--  Добавить комментарии  -->
+            <?php include ROOT . "templates/blog/_add-comment-form.tpl" ?>
         </div>
     </div>
 </div>

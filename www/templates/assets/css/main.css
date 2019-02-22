@@ -845,7 +845,8 @@ a.title-medium,
 
 .avatar--small {
     width: 48px;
-    height: 48px;
+    height: 47px;
+    background-size: cover;
 }
 
 .badge {
@@ -1167,8 +1168,8 @@ a.title-medium,
     border-radius: 6px;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
-    padding: 19px;
+/*    display: flex;*/
+    padding: 20px;
 }
 
 .comments-form {
