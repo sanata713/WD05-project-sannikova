@@ -1,5 +1,10 @@
 <?php
 
+if ( !isAdmin() ) {
+	header("Location: " . HOST);
+	die();
+}
+
 $title = "Сообщения";
 
 $messages = R::find('messages', 'ORDER BY id DESC');
