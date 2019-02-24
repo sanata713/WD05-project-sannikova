@@ -1588,24 +1588,35 @@ a.title-medium,
 }
 
 .svg-box {
+/*
     width: 126px;
     height: 126px;
     viewbox: 0 0 115 115;
+*/
 }
 
 .circle {
+/*
     cx: 63;
     cy: 63;
     r: 56;
+*/
     stroke-width: 10px;
     fill: transparent;
-    stroke-dasharray: 351.85px;
+    stroke: rgba(226,226,226,0.05);
+/*    stroke-dasharray: 351.85px;*/
     -webkit-transform-origin: center;
     -ms-transform-origin: center;
     transform-origin: center;
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
+}
+
+.circle_bg {
+    stroke-width: 10px;
+    fill: transparent;
+    stroke: rgba(255,255,255,0.05);
 }
 
 .circle--green {

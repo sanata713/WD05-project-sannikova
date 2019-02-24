@@ -1,3 +1,4 @@
-<main>
-    <h1>ABOUT PAGE - about.tpl</h1>
-</main>
+<?php include(ROOT . "templates/about/_about-text.tpl"); ?>
+<?php include(ROOT . "templates/about/_about-skills.tpl"); ?>
+<?php include(ROOT . "templates/about/_about-jobs.tpl"); ?>
+    
