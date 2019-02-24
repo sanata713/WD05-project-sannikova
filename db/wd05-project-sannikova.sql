@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 22 2019 г., 14:40
+-- Время создания: Фев 23 2019 г., 03:07
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -119,6 +119,31 @@ INSERT INTO `contacts` (`id`, `email`, `phone`, `address`, `name`, `secondname`,
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `message` text COLLATE utf8mb4_unicode_520_ci,
+  `date_time` datetime DEFAULT NULL,
+  `message_file_name_original` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `message_file` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `messages`
+--
+
+INSERT INTO `messages` (`id`, `email`, `name`, `message`, `date_time`, `message_file_name_original`, `message_file`) VALUES
+(21, 'pp@mail.ru', 'Pavel', 'Бали &ndash; достаточно продвинутое для юго-восточной азии место. ', '2019-02-23 03:05:22', '5.jpg', '295598942.jpg'),
+(22, 'nata_san@bk.ru', 'Nata', 'CV', '2019-02-23 03:05:57', 'cvnew.pdf', '-432779120.pdf'),
+(23, 'user@mail.com', 'Lora', 'Про качество медицины спорить на стану (я же не врач), но лично у меня есть обоснованное подозрение, что несмотря на современность оборудования клиник, не стоит обольщаться уровнем местных врачей. ', '2019-02-23 03:06:50', '4.jpg', '-315780837.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `posts`
 --
 
@@ -212,6 +237,12 @@ ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `posts`
 --
 ALTER TABLE `posts`
@@ -251,6 +282,12 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `posts`
