@@ -5,14 +5,16 @@
                 <div class="col-5 no-paddings">
                     <div class="footer__copyright">
                         <p>© Санникова Наталья</p>
-                        <p>Создано с <i class="mr-0 fas fa-heart"></i> в <a class="strong" href="http://webcademy.ru/" target="_blank">WebCademy.ru</a> в 2018 году</p>
+                        <p>Создано с <i class="mr-0 fas fa-heart"></i> в <a class="strong" href="http://webcademy.ru/" target="_blank">WebCademy.ru</a> в 2019 году</p>
                     </div>
                 </div>
                 <div class="col-3 no-paddings">
                     <nav class="footer__nav">
                         <a href="<?=HOST?>">Главная</a>
                         <a href="<?=HOST?>about">Обо мне</a>
+                        <?php /*
                         <a href="<?=HOST?>portfolio">Работы</a>
+                        */ ?>
                         <a href="<?=HOST?>blog">Блог</a>
                         <a href="<?=HOST?>contacts">Контакты</a>
                     </nav>

@@ -1,7 +1,11 @@
 <?php
 
+$pagination = pagination(6, 'posts');
+
 $title = "Блог | Все записи";
-$posts = R::find('posts', 'ORDER BY id DESC');
+
+$posts = R::find('posts', 'ORDER BY id DESC '. $pagination['sql_pages_limit']);
+//$posts = R::find('posts', 'ORDER BY ID DESC '. $pagination['sql_pages_limit']);
 
 // Готовим контент для центральной части
 ob_start();

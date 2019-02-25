@@ -117,9 +117,9 @@
             <!--            <?php include ROOT . "templates/_parts/_success.tpl" ?>-->
 
             <form class="feedback-form" action="<?=HOST?>contacts" method="post" enctype="multipart/form-data">
-                <input class="input" name="name" type="text" placeholder="Введите имя" />
-                <input class="input" name="email" type="email" placeholder="Email" />
-                <textarea class="textarea mb-20" name="message" placeholder="Сообщение"></textarea>
+                <input class="input" name="name" type="text" placeholder="Введите имя" value="<?php echo @$_POST['name'] != '' ? @$_POST['name'] : ''; ?>" />
+                <input class="input" name="email" type="email" placeholder="Email" value="<?php echo @$_POST['email'] != '' ? @$_POST['email'] : ''; ?>" />
+                <textarea class="textarea mb-20" name="message" placeholder="Сообщение"><?php echo @$_POST['message'] != '' ? @$_POST['message'] : ''; ?></textarea>
                 <section class="upload-file">
                     <h6 class="upload-file__title">Прикрепить файл</h6>
                     <p class="upload-file__description">jpg, png, pdf, doc, весом до 2Мб.</p>
