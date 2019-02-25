@@ -836,6 +836,38 @@ a.title-medium,
     align-self: flex-start;
 }
 
+.pagination {
+    border-top: 35px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pagination__item {
+    background: none repeat scroll 0 0 #eee;
+    color: #222;
+    height: 42px;
+    line-height: 1;
+    text-decoration: none;
+    padding: 13px 18px 6px;
+    border-radius: 6px;
+    margin: 0 10px;
+    transition: all 0.2s ease-in;
+}
+
+.pagination__item:hover {
+    background-color: #639dbe;
+    color: #ffffff;
+}
+
+.pagination__item:active, .pagination__item--active {
+    background-color: #2c76a0;
+    color: #ffffff;
+}
+
 .avatar {
     width: 205px;
     height: 205px;
@@ -1339,7 +1371,8 @@ a.title-medium,
 }
 
 .about-me {
-    padding-top: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .about-me .title-1 {

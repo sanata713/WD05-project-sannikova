@@ -9,7 +9,7 @@
                 <form action="<?=HOST?>blog/post-new" method="post" enctype="multipart/form-data">
                     <div class="add-post-content__name mt-40">
                         <label class="label" for="add-post-name">Название</label>
-                        <input class="input" name="postTitle" id="add-post-name" type="text" placeholder="Введите название" />
+                        <input class="input" name="postTitle" id="add-post-name" type="text" placeholder="Введите название" value="<?=@$_POST['postTitle']?>" />
                     </div>
 
                     <div class="add-post-content__name mt-40">
@@ -35,7 +35,7 @@
                     <div class="add-post-content__main mt-30">
                         <label class="label" for="add-post-city">Содержание</label>
                         <div class="ckeditor">
-                            <textarea id="ckEditor" class="textarea" name="postText" id="add-post-city" placeholder="Введите текст"></textarea>
+                            <textarea id="ckEditor" class="textarea" name="postText" id="add-post-city" placeholder="Введите текст"><?php echo @$_POST['postText'] != '' ? @$_POST['postText'] : ''; ?></textarea>
                             <?php include_once ROOT . "templates/_parts/_ckEditorConnect.tpl" ?>
                         </div>
                     </div>

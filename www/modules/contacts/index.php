@@ -13,6 +13,14 @@ if ( isset($_POST['newMessage'])) {
     } else if (!preg_match($pattern, trim($_POST['email']))) {
         $errors[] = ['title' => 'Неверный формат email'];
 	}
+    
+    if(trim($_POST['name']) == '') {
+        $errors[] = ['title' => 'Введите Ваше имя'];
+    }
+    
+    if(trim($_POST['message']) == '') {
+        $errors[] = ['title' => 'Введите текст сообщения'];
+    }
 
     
     if ( isset($_FILES["file"]["name"]) && $_FILES["file"]["tmp_name"] != "" ) {
